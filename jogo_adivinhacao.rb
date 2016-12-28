@@ -1,24 +1,24 @@
 require_relative "ui"
 
 def escolhe_numero_secreto (dificuldade)
-
-	case dificuldade
-	when 1
-		maximo = 30
-	when 2
-		maximo = 60
-	when 3
-		maximo = 100
-	when 4
-		maximo = 150
-	else
-		maximo = 200
-	end
-
+	
+		case dificuldade
+		when 1
+			maximo = 30
+		when 2
+			maximo = 60
+		when 3
+			maximo = 100
+		when 4
+			maximo = 150
+		else
+			maximo = 200
+		end	
+	
 	mostra_numero_secreto_maximo maximo
 	numero_secreto = rand (maximo) + 1
 	mostra_pergunta_inicio
-	
+
 	return numero_secreto
 end
 	
@@ -43,7 +43,7 @@ end
 def jogar (dificuldade)
 	numero_secreto = escolhe_numero_secreto dificuldade
 	pontuacao_jogador = 1000
-	limite_tentativas = 1
+	limite_tentativas = 5
 	ultimas_tentativas = []
 
 	for tentativa in 1..limite_tentativas

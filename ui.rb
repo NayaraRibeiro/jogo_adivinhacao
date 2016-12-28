@@ -20,9 +20,15 @@ def escolhe_dificuldade
     puts "Qual nível de dificuldade deseja?"
     puts "(1) - Fácil  (2) - Médio  (3) - Difícil  (4) - Muito Difícil  (5) - Impossível"
     puts "Escolha: "
-    dificuldade = gets.to_i
-    return dificuldade
-
+    nivel = gets.to_i
+    rag = (1...5)
+    if rag === nivel
+        dificuldade = nivel
+    else
+        opcao_invalida
+        escolhe_dificuldade
+    end
+    
 end
 
 def mostra_numero_secreto_maximo (maximo)
@@ -115,5 +121,5 @@ end
 def opcao_invalida
 
     puts "Opção inválida. Tente novamente."
-    
+    puts "\n\n"
 end
