@@ -43,7 +43,7 @@ end
 def jogar (dificuldade)
 	numero_secreto = escolhe_numero_secreto dificuldade
 	pontuacao_jogador = 1000
-	limite_tentativas = 1
+	limite_tentativas = 5
 	ultimas_tentativas = []
 
 	for tentativa in 1..limite_tentativas
