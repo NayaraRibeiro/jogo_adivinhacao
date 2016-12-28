@@ -8,11 +8,11 @@ Para rodar o jogo é necessário ter Ruby instalado em seu pc.
 
 ## Executar
 
-Basta rodar o arquivo main.rb no terminal.
+Basta rodar o arquivo main.rb no terminal:
+ruby main.rb
 
 ## Ferramentas utilizadas
 
-* [Sublime Text 2] - Text editor
 * Ruby
 
 ## Autora
