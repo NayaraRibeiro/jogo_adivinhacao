@@ -75,9 +75,10 @@ class Jogo_Adivinhacao
 		ultimas_tentativas = []
 
 		for tentativa in 1..limite_tentativas
-
-			numero_entrada_jogador = $object_input.entrar_tentativa_jogador(ultimas_tentativas, tentativa, limite_tentativas)
-
+			$object_mensagem.exibe_mensagem_tentativa ultimas_tentativas, tentativa, limite_tentativas
+			numero_entrada_jogador = $object_input.entrar_tentativa_jogador
+			$object_mensagem.exibe_mensagem_acertou_secreto numero_entrada_jogador
+			
 			ultimas_tentativas << numero_entrada_jogador
 
 			pontos_perdidos = (numero_entrada_jogador.to_i - numero_secreto).abs / 2.0
@@ -96,12 +97,14 @@ class Jogo_Adivinhacao
 
 	    $object_mensagem.exibe_mensagem_escolha_dificuldade
 	    
-	    nivel = gets.to_i
+	    nivel = $object_input.entrar_dificuldade
+	    nivel = nivel.to_i
+	    
 	    rag = (1..5)
 	    if rag === nivel
 	        dificuldade = nivel
 	    else
-	        opcao_invalida
+	        $object_mensagem.opcao_invalida
 	        escolhe_dificuldade
 	    end
 	    
@@ -111,7 +114,7 @@ class Jogo_Adivinhacao
 	    
 		$object_mensagem.quer_jogar_novamente
 	    
-	    quer_jogar = gets.strip
+	    quer_jogar = $object_input.deseja_jogar_novamente
 	    if quer_jogar.upcase == "S" || quer_jogar.upcase == "N"
 	        quer_jogar.upcase == "N"    
 	    else        
