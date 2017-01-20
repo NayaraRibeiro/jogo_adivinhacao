@@ -21,7 +21,7 @@ def escolhe_dificuldade
     puts "(1) - Fácil  (2) - Médio  (3) - Difícil  (4) - Muito Difícil  (5) - Impossível"
     puts "Escolha: "
     nivel = gets.to_i
-    rag = (1...5)
+    rag = (1..5)
     if rag === nivel
         dificuldade = nivel
     else
