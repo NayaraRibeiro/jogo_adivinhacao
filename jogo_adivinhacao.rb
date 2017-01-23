@@ -1,9 +1,11 @@
 require_relative "input"
 require_relative "output"
+require_relative "validation"
 
 class Jogo_Adivinhacao
 	$object_mensagem = Output.new
 	$object_input = Input.new
+	$object_validation = Validation.new
 
 	def jogo_adivinhacao
 
@@ -24,6 +26,23 @@ class Jogo_Adivinhacao
 				break
 			end
 		end
+	end
+
+	def escolhe_dificuldade
+
+	    $object_mensagem.exibe_mensagem_escolha_dificuldade
+	    
+	    nivel = $object_input.entrar_dificuldade
+	    nivel = nivel.to_i
+		    
+	    rag = (1..5)
+	    if rag === nivel
+	        dificuldade = nivel
+	    else
+	        $object_mensagem.opcao_invalida
+	        escolhe_dificuldade
+	    end
+	    
 	end
 
 	def escolhe_numero_secreto (dificuldade)
@@ -91,23 +110,6 @@ class Jogo_Adivinhacao
 		$object_mensagem.mostra_pontuacao_final pontuacao_jogador
 		$object_mensagem.mostra_numero_secreto numero_secreto
 
-	end
-
-	def escolhe_dificuldade
-
-	    $object_mensagem.exibe_mensagem_escolha_dificuldade
-	    
-	    nivel = $object_input.entrar_dificuldade
-	    nivel = nivel.to_i
-	    
-	    rag = (1..5)
-	    if rag === nivel
-	        dificuldade = nivel
-	    else
-	        $object_mensagem.opcao_invalida
-	        escolhe_dificuldade
-	    end
-	    
 	end
 
 	def jogar_novamente
