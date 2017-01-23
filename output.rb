@@ -6,7 +6,7 @@ class Output
     	puts "  l)___)      Jogo da Adivinhação!     "
     	puts "  =o===o=                              "
     	puts "                                       "
-    	puts
+    	puts 
     end
 
     def exibe_pergunta_nome
@@ -42,6 +42,12 @@ class Output
         puts "Tentativa número #{tentativa} de #{limite_tentativas}"
         puts "Tentativas anteriores: #{ultimas_tentativas}"
         puts "Entre com o numero: "
+        
+    end
+
+    def exibe_mensagem_entre_com_numero
+        puts "Entre com o numero: "
+        
     end
 
     def exibe_mensagem_acertou_secreto (numero_entrada_jogador)
