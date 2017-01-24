@@ -13,9 +13,14 @@ class Output
         puts "Qual é o seu nome?"
     end
 
-    def exibe_inicio_jogo
+    def exibe_inicio_jogo 
         puts "\n\n\n\n\n\n"
-        puts "Começaremos o jogo para você, #{$nome}..."
+        puts "Começaremos o jogo para você, #{$nome_jogador}..."
+    end
+
+    def exibe_melhor_jogador_atual (dados_rank)
+        puts "O melhor jogador atualmente é #{dados_rank[0]} com #{dados_rank[1]} pontos."
+        
     end
     
     def exibe_mensagem_escolha_dificuldade
@@ -96,7 +101,7 @@ class Output
     end
 
     def  mostra_pontuacao_final (pontuacao_jogador)
-        puts "Sua pontuação foi #{pontuacao_jogador} pontos."
+        puts "Sua pontuação nesta rodada foi #{pontuacao_jogador} pontos."
         
     end
 
@@ -109,5 +114,11 @@ class Output
         puts "Opção inválida. Tente novamente."
         puts "\n\n"
     end
+
+    def mostra_pontos_totais (pontuacao_total)
+        puts "Você possui #{pontuacao_total} pontos no total."
+        
+    end
+
 end
 

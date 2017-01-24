@@ -6,8 +6,9 @@ class Input
 	$object_msg = Output.new
     $object_validation = Validation.new
 
-    def nome_jogador (nome)
-        $nome = gets.strip
+    def nome_jogador (nome_jogador)
+        $nome_jogador = gets.strip
+        
 
     end
 

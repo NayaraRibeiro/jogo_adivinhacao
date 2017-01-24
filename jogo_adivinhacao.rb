@@ -1,30 +1,44 @@
 require_relative "input"
 require_relative "output"
 require_relative "validation"
+require_relative "dao"
 
 class Jogo_Adivinhacao
 	$object_mensagem = Output.new
 	$object_input = Input.new
 	$object_validation = Validation.new
+	$object_dao = Dao.new
 
-	def jogo_adivinhacao
+	def jogo_adivinhacao 
 
 		$object_mensagem.exibe_coruja
 
 	    $object_mensagem.exibe_pergunta_nome
-	       
+	     
 	    $object_input.nome_jogador ( )
 
 	    $object_mensagem.exibe_inicio_jogo
 
+	    $object_mensagem.exibe_melhor_jogador_atual $object_dao.le_rank
+
+	    pontuacao_total = 0
+	    
 
 	    loop do
-		
+			
+			$object_mensagem.mostra_pontos_totais pontuacao_total
 			dificuldade = escolhe_dificuldade
-			jogar dificuldade
+			pontuacao_total += jogar dificuldade
+			
+			if $object_dao.le_rank[2].to_i < pontuacao_total
+				$object_dao.salva_rank $nome_jogador, pontuacao_total
+			end
+
 			if jogar_novamente
 				break
 			end
+			
+			pontuacao_total
 		end
 	end
 
@@ -52,8 +66,8 @@ class Jogo_Adivinhacao
 		
 		$object_mensagem.mostra_numero_secreto_maximo (maximo)
 		
-		numero_secreto = rand (maximo) + 1
-		
+		#numero_secreto = rand (maximo) + 1
+		numero_secreto = 20
 		$object_mensagem.mostra_inicio_jogo
 
 		return numero_secreto
@@ -96,9 +110,12 @@ class Jogo_Adivinhacao
 			break if verifica_se_acertou(numero_secreto, numero_entrada_jogador)
 			
 		end
-
+		
 		$object_mensagem.mostra_pontuacao_final pontuacao_jogador
+		
 		$object_mensagem.mostra_numero_secreto numero_secreto
+
+		pontuacao_jogador
 
 	end
 
