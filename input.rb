@@ -10,16 +10,16 @@ class Input
         $nome = gets.strip
 
     end
-	
-	def entrar_tentativa_jogador		
-	    $numero_tentativa_jogador = gets.strip
-	    $object_validation.valida_tentativa_jogador
-
-	end
 
 	def entrar_dificuldade
 		$nivel_de_dificuldade = gets.strip
 		$object_validation.valida_dificuldade_escolhida
+
+	end
+	
+	def entrar_tentativa_jogador		
+	    $numero_tentativa_jogador = gets.strip
+	    $object_validation.valida_tentativa_jogador
 
 	end
 

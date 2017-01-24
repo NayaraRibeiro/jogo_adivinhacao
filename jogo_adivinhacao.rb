@@ -31,18 +31,8 @@ class Jogo_Adivinhacao
 	def escolhe_dificuldade
 
 	    $object_mensagem.exibe_mensagem_escolha_dificuldade
-	    
-	    nivel = $object_input.entrar_dificuldade
-	    nivel = nivel.to_i
-		    
-	    rag = (1..5)
-	    if rag === nivel
-	        dificuldade = nivel
-	    else
-	        $object_mensagem.opcao_invalida
-	        escolhe_dificuldade
-	    end
-	    
+	    $object_validation.valida_nivel
+	    	    
 	end
 
 	def escolhe_numero_secreto (dificuldade)
