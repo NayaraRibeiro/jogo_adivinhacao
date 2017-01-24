@@ -28,4 +28,19 @@ class Validation
 	    	
 	    end	
 	end
+
+	def valida_nivel
+		$nivel = $object_input.entrar_dificuldade
+	    $nivel = $nivel.to_i
+		    
+	    $rag = (1..5)
+	    if $rag === $nivel
+	        $dificuldade = $nivel
+	    else
+	        $object_mensagem.opcao_invalida
+	        $object_mensagem.exibe_mensagem_escolha_dificuldade
+	        $object_validation.valida_nivel
+	    end
+		
+	end
 end
