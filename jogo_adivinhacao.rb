@@ -66,8 +66,8 @@ class Jogo_Adivinhacao
 		
 		$object_mensagem.mostra_numero_secreto_maximo (maximo)
 		
-		#numero_secreto = rand (maximo) + 1
-		numero_secreto = 20
+		numero_secreto = rand (maximo) + 1
+		
 		$object_mensagem.mostra_inicio_jogo
 
 		return numero_secreto
